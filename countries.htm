@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ejemplo2">
+	<head>
+		<meta charset="UTF-8">
+		<title>Countries</title>
+		<script src="js/angular.js" ></script>
+		<script src="js/controller.js" ></script>
+		<title>Mcafee Internship</title>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="css/agency.css" rel="stylesheet">
+	</head>
+	<body ng-controller="controllerMain" ng-init="inicializar()">
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+					<h1>Choose a country</h1>
+					<select ng-change="buscarRegiones()" ng-model="url">
+						<option value="">Choose a country...</option>
+						<option value="http://restcountries.eu/rest/v1/region/africa">Africa</option>
+						<option value="http://restcountries.eu/rest/v1/region/europe">Europa</option>
+						<option value="http://restcountries.eu/rest/v1/region/americas">America</option>
+					</select>
+
+					<table class="table table-inverse" ng-show="(paises.length>0)">
+						<thead>
+							<tr >
+								<th>#</th>
+								<th>Country</th>
+								<th>Capital</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="pais in paises">
+								<td>{{$index+1}}</td>
+								<td>{{pais.name}}</td>
+								<td>{{pais.name}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
